@@ -8,7 +8,7 @@ webhookRouter.use(bodyParser.json());
 
 webhookRouter.route('/')
 .post((req, res, next) => {
-  if(res) {
+  // if(res) {
     // response = "This is a sample response from your webhook!" //Default response from the webhook to show it's working
     //
     // res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
@@ -18,7 +18,7 @@ webhookRouter.route('/')
         // result = req.get("result")
         // parameters = result.get("parameters")
     projectId = req.body.result.parameters.projectId;
-    console.log(`Request body details ${req.body}`);
+    console.log(`Request body details ${JSON.stringify(req.body)}`);
     releases.fetch(projectId).then((regressionSuites)=>{
       res.statusCode = 200
       res.setHeader('Content-Type', 'application/json');
@@ -28,11 +28,11 @@ webhookRouter.route('/')
     }, (err)=>next(err))
     .catch((error)=>next(error));
 
-  }else{
-    var error = new Error('Unble to get the response');
-    error.statusCode = 403;
-    return next(error);
-  }
+  // }else{
+  //   var error = new Error('Unble to get the response');
+  //   error.statusCode = 403;
+  //   return next(error);
+  // }
 }, (err)=>next(err))
 
 module.exports = webhookRouter;
