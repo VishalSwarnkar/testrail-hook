@@ -17,7 +17,7 @@ webhookRouter.route('/')
     // }));
         // result = req.get("result")
         // parameters = result.get("parameters")
-    projectId = req.body.result.parameters("projectId.original");
+    projectId = req.body.result.parameters.projectId;
     console.log(`Request body details ${req.body}`);
     releases.fetch(projectId).then((regressionSuites)=>{
       res.statusCode = 200
