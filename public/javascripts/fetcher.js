@@ -1,8 +1,5 @@
 // var fetch = require('promise-path').fetch
 var request = require('request-promise');
-var url = "https://bbcpodtest.testrail.com/index.php?/api/v2/get_plans/"
-var apikey = 'Xim2uzmajuQF3V2Qgrgd-6npDImZXetXMVo6zQbTN'
-var username = 'vishal.swarnkar.ext@bbc.co.uk'
 
 function clone (data) {
   return JSON.parse(JSON.stringify(data))
